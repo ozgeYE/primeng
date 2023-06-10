@@ -1,0 +1,14 @@
+<div class="home-container">
+  <p-card header="Welcome to Site" subheader="Please check your ip address" [style]="{ width: '500px' }">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png"/>
+    </ng-template>
+    <p>
+      Hi, {{fullName}}!
+    </p>
+    <input type="text" placeholder="Please Enter IP Address" pInputText [formControl]="ipAddress"/>
+    <p *ngIf="ipAddress.status != 'VALID'">
+      Please enter valid ip address
+    </p>
+  </p-card>
+</div>
