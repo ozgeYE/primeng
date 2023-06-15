@@ -10,17 +10,9 @@ import {REGEX_PATTERNS} from "../libs/regex";
 })
 export class HomeComponent {
   fullName = this.localStorageService.getItem('fullName');
-  ipAddress = new FormControl({ value: '', disabled: false}, [Validators.required, this.validateInput]);
+  ipAddress = new FormControl({ value: '', disabled: false}, [Validators.required, Validators.pattern(REGEX_PATTERNS.ipAddressWithSubnet)]);
 
   constructor(private localStorageService: LocalStorageService) {
-  }
-
-  validateInput(c: FormControl) {
-    return (new RegExp(REGEX_PATTERNS.ipAddress).test(c.value) || new RegExp(REGEX_PATTERNS.ipAddressWithSubnet).test(c.value)) ? null : {
-      validateInput: {
-        valid: false
-      }
-    };
   }
 
   save() {
