@@ -15,12 +15,4 @@ export class LocalStorageService {
     const value = localStorage.getItem(key);
     return value ? JSON.parse(value) : null;
   }
-
-  removeItem(key: string): void {
-    localStorage.removeItem(key);
-  }
-
-  clear(): void {
-    localStorage.clear();
-  }
 }

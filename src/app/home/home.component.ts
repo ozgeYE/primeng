@@ -9,14 +9,10 @@ import {REGEX_PATTERNS} from "../libs/regex";
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  fullName = this.localStorageService.getItem('fullName');
-  ipAddress = new FormControl({ value: '', disabled: false}, [Validators.required, Validators.pattern(REGEX_PATTERNS.ipAddressWithSubnet)]);
+  fullName: string = this.localStorageService.getItem('fullName');
+  ipAddress: FormControl = new FormControl({ value: '', disabled: false}, [Validators.required, Validators.pattern(REGEX_PATTERNS.ipAddressWithSubnet)]);
 
   constructor(private localStorageService: LocalStorageService) {
-  }
-
-  save() {
-    console.log(this.ipAddress);
   }
 
 }
